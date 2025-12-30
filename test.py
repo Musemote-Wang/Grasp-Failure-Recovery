@@ -8,10 +8,10 @@ os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
-import graspenvs
-import graspenvs.utils as utils
+import envs
+import envs.utils as utils
 import gymnasium
-import graspagents
+import agents
 
 
 def test_env_v1():
@@ -41,8 +41,8 @@ def test_env_v1():
 
 def test_env_v2_and_v3():
     # agent = graspagents.GraspAgent_dl({'env': 'GraspEnv_v3', 'model': 'Transnet'})
-    # agent = graspagents.GraspAgent_bayes({'env': 'GraspEnv_v3'})
-    agent = graspagents.GraspAgent_rl({'env': 'GraspEnv_v3', 'model': 'SAC'})
+    agent = agents.GraspAgent_bayes({'env': 'GraspEnv_v3'})
+    # agent = graspagents.GraspAgent_rl({'env': 'GraspEnv_v3', 'model': 'SAC'})
     num_tasks, num_trials = 1000, 1
     attempts, returns, success = np.zeros((num_tasks * num_trials)), np.zeros((num_tasks * num_trials)), np.zeros((num_tasks * num_trials))
     w = []
